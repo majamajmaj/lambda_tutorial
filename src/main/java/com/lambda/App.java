@@ -178,10 +178,11 @@ public class App {
         con.accept(10); // This calls the lambda.
 
         stream();
+
     }
 
     // ------------------------------
-    // Exersices
+    // Exercises
     // ------------------------------
 
     // Lambda Creation -------------------------
@@ -189,24 +190,34 @@ public class App {
     public static BiFunction<Integer, Integer, Integer> minimum() {
         // Return a lambda accepting 2 Integer parameters and returning the minimum of
         // the 2.
-        return null;
+        return (x, z) -> {
+            if (x > z) {
+                return z;
+            } else {
+                return x;
+            }
+        };
+
     }
 
     public static <T> Consumer<T> printer() {
         // Return a lambda accepting a parameter and printing it to the console.
-        return null;
+        // Like as a String object ooor how is it meant? :)
+        return (t) -> {System.out.println(t.toString());};
     }
 
     public static Comparator<Integer> compare() {
         // This time return a lambda accepting 2 Integer parameters and returning a
         // Integer comparing the 2. (See the Comparator specifications).
-        return null;
+        return (x,y) -> {return Integer.compare(x, y);};
     }
+
 
     public static Predicate<Character> digit() {
         // Return a lambda accepting a Character parameter and returning true or false
         // if the character is a digit or not.
-        return null;
+        // interesting style rule "acessing static methods is preferred via the class"
+        return (ch) -> {return Character.isDigit(ch);};
     }
 
     public static Function<LocalDate, String> time() {
